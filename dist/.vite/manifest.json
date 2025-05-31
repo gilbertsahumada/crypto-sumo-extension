@@ -1,46 +1,68 @@
 {
   "../../../../@crx/manifest": {
-    "file": "assets/crx-manifest.js-DzeeQDPf.js",
+    "file": "assets/crx-manifest.js-M5ufl2Rz.js",
     "name": "crx-manifest.js",
     "src": "../../../../@crx/manifest",
     "isEntry": true
   },
-  "_index-DMPdAPVQ.js": {
-    "file": "assets/index-DMPdAPVQ.js",
+  "_client-DzwojeCa.js": {
+    "file": "assets/client-DzwojeCa.js",
+    "name": "client"
+  },
+  "_index-BDvrWGpM.js": {
+    "file": "assets/index-BDvrWGpM.js",
     "name": "index",
+    "imports": [
+      "_client-DzwojeCa.js"
+    ],
     "dynamicImports": [
       "node_modules/viem/_esm/utils/ccip.js"
     ]
   },
   "content.ts-loader.js": {
-    "file": "assets/content.ts-loader-DK31cXPj.js",
+    "file": "assets/content.ts-loader-C9-oVVaY.js",
     "src": "content.ts-loader.js"
   },
   "node_modules/viem/_esm/utils/ccip.js": {
-    "file": "assets/ccip-CZGRCy_-.js",
+    "file": "assets/ccip-0mjIEQWO.js",
     "name": "ccip",
     "src": "node_modules/viem/_esm/utils/ccip.js",
     "isDynamicEntry": true,
     "imports": [
-      "_index-DMPdAPVQ.js"
+      "_index-BDvrWGpM.js",
+      "_client-DzwojeCa.js"
+    ]
+  },
+  "popup.html": {
+    "file": "assets/popup.html-DclGOqRI.js",
+    "name": "popup.html",
+    "src": "popup.html",
+    "isEntry": true,
+    "imports": [
+      "_client-DzwojeCa.js"
+    ],
+    "css": [
+      "assets/popup-Ccbjv8ae.css"
     ]
   },
   "src/background.ts": {
-    "file": "assets/background.ts-5AKoQ7al.js",
+    "file": "assets/background.ts-DJyWY1co.js",
     "name": "background.ts",
     "src": "src/background.ts",
     "isEntry": true,
     "imports": [
-      "_index-DMPdAPVQ.js"
+      "_index-BDvrWGpM.js",
+      "_client-DzwojeCa.js"
     ]
   },
   "src/content.ts": {
-    "file": "assets/content.ts-CddNh5Wc.js",
+    "file": "assets/content.ts-CAMQkgIK.js",
     "name": "content.ts",
     "src": "src/content.ts",
     "isEntry": true,
     "imports": [
-      "_index-DMPdAPVQ.js"
+      "_index-BDvrWGpM.js",
+      "_client-DzwojeCa.js"
     ],
     "css": [
       "assets/content-BUfS2wY2.css"

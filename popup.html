@@ -1,57 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <style>
-    body {
-      width: 300px;
-      min-height: 400px;
-      margin: 0;
-      padding: 16px;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-    }
-
-    /* ...existing styles... */
-  </style>
-</head>
-<body>
-  <div class="header">
-    <h1>🥋 Crypto Sumo</h1>
-  </div>
-
-  <div id="status" class="status inactive">Inactive</div>
-
-  <div class="crypto-info">
-    <h4>Elements Found</h4>
-    <div class="crypto-count" id="cryptoCount">0</div>
-  </div>
-
-  <button id="toggleBtn" class="btn btn-primary">Activate</button>
-  <button id="scanBtn" class="btn btn-secondary">Scan Page</button>
-
-  <div class="settings">
-    <h3>⚙️ Settings</h3>
-    
-    <div class="setting-item">
-      <label for="notifications">Notifications</label>
-      <input type="checkbox" id="notifications" checked>
-    </div>
-    
-    <div class="setting-item">
-      <label for="refreshInterval">Refresh Rate</label>
-      <select id="refreshInterval">
-        <option value="10000">10s</option>
-        <option value="30000" selected>30s</option>
-        <option value="60000">1m</option>
-        <option value="300000">5m</option>
-      </select>
-    </div>
-  </div>
-
-  <div id="statusMessage" class="status-message"></div>
-
-  <script type="module" src="./src/popup.ts"></script>
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/icon/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sherry Extension</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/popup/index.tsx"></script>
+  </body>
 </html>

@@ -16,7 +16,7 @@ export default defineManifest({
     //128: 'icons/icon-128.png',
   },
   action: {
-    default_popup: 'public/popup.html', // Use explicit path to popup.html
+    default_popup: 'popup.html', // Use explicit path to popup.html
     default_title: 'Crypto Sumo',
   },
   background: {

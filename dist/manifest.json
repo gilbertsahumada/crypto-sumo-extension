@@ -5,7 +5,7 @@
   "manifest_version": 3,
   "icons": {},
   "action": {
-    "default_popup": "public/popup.html",
+    "default_popup": "popup.html",
     "default_title": "Crypto Sumo"
   },
   "background": {
@@ -15,7 +15,7 @@
   "content_scripts": [
     {
       "js": [
-        "assets/content.ts-loader-DK31cXPj.js"
+        "assets/content.ts-loader-C9-oVVaY.js"
       ],
       "matches": [
         "<all_urls>"
@@ -32,9 +32,10 @@
         "<all_urls>"
       ],
       "resources": [
-        "assets/index-DMPdAPVQ.js",
-        "assets/ccip-CZGRCy_-.js",
-        "assets/content.ts-CddNh5Wc.js"
+        "assets/index-BDvrWGpM.js",
+        "assets/client-DzwojeCa.js",
+        "assets/ccip-0mjIEQWO.js",
+        "assets/content.ts-CAMQkgIK.js"
       ],
       "use_dynamic_url": false
     }
