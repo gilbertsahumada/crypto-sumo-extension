@@ -15,12 +15,15 @@
   "content_scripts": [
     {
       "js": [
-        "assets/content-script-loader.content.ts.d97e46aa.9555ee86.js"
+        "assets/content.ts-loader-DK31cXPj.js"
       ],
       "matches": [
         "<all_urls>"
       ],
-      "run_at": "document_idle"
+      "run_at": "document_idle",
+      "css": [
+        "assets/content-BUfS2wY2.css"
+      ]
     }
   ],
   "web_accessible_resources": [
@@ -28,21 +31,17 @@
       "matches": [
         "<all_urls>"
       ],
-      "resources": [],
-      "use_dynamic_url": false
-    },
-    {
-      "matches": [
-        "<all_urls>"
-      ],
       "resources": [
-        "assets/content.ts.d97e46aa.js"
+        "assets/index-DMPdAPVQ.js",
+        "assets/ccip-CZGRCy_-.js",
+        "assets/content.ts-CddNh5Wc.js"
       ],
-      "use_dynamic_url": true
+      "use_dynamic_url": false
     }
   ],
   "permissions": [
     "storage",
-    "activeTab"
+    "activeTab",
+    "scripting"
   ]
 }

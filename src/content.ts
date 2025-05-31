@@ -7,7 +7,7 @@ import {
 import { setClientKey, MiniAppDirectory } from '@sherrylinks/slinks-core';
 
 export async function initSlinksObserver() {
-  const clientKey = import.meta.env.VITE_SHERRY_CLIENT_KEY;
+  const clientKey = ""
   setClientKey(clientKey);
 
   const directory = MiniAppDirectory.getInstance();

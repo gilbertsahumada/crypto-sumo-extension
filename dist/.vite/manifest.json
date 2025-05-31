@@ -1,0 +1,49 @@
+{
+  "../../../../@crx/manifest": {
+    "file": "assets/crx-manifest.js-DzeeQDPf.js",
+    "name": "crx-manifest.js",
+    "src": "../../../../@crx/manifest",
+    "isEntry": true
+  },
+  "_index-DMPdAPVQ.js": {
+    "file": "assets/index-DMPdAPVQ.js",
+    "name": "index",
+    "dynamicImports": [
+      "node_modules/viem/_esm/utils/ccip.js"
+    ]
+  },
+  "content.ts-loader.js": {
+    "file": "assets/content.ts-loader-DK31cXPj.js",
+    "src": "content.ts-loader.js"
+  },
+  "node_modules/viem/_esm/utils/ccip.js": {
+    "file": "assets/ccip-CZGRCy_-.js",
+    "name": "ccip",
+    "src": "node_modules/viem/_esm/utils/ccip.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-DMPdAPVQ.js"
+    ]
+  },
+  "src/background.ts": {
+    "file": "assets/background.ts-5AKoQ7al.js",
+    "name": "background.ts",
+    "src": "src/background.ts",
+    "isEntry": true,
+    "imports": [
+      "_index-DMPdAPVQ.js"
+    ]
+  },
+  "src/content.ts": {
+    "file": "assets/content.ts-CddNh5Wc.js",
+    "name": "content.ts",
+    "src": "src/content.ts",
+    "isEntry": true,
+    "imports": [
+      "_index-DMPdAPVQ.js"
+    ],
+    "css": [
+      "assets/content-BUfS2wY2.css"
+    ]
+  }
+}

@@ -25,6 +25,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@sherrylinks/sdk": "^2.20.14-beta.1",
     "@sherrylinks/slinks": "^0.1.15-beta",
     "@sherrylinks/slinks-core": "^0.1.15-beta"
   }
