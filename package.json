@@ -23,5 +23,9 @@
     "typescript"
   ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@sherrylinks/slinks": "^0.1.15-beta",
+    "@sherrylinks/slinks-core": "^0.1.15-beta"
+  }
 }

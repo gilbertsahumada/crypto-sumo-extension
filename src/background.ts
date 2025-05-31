@@ -1,41 +1,116 @@
-// Background script for Crypto Sumo Extension
-console.log('🚀 Crypto Sumo Extension - Background script loaded');
-
-// Listen for extension installation
-chrome.runtime.onInstalled.addListener((details) => {
-  console.log('Extension installed:', details.reason);
+import {
+    connectProvider,
+    providerKeyFor,
+    switchChainRequest,
+    sendTransactionRequest,
+    simulateContractCall,
+  } from '@sherrylinks/slinks/ext';
   
-  if (details.reason === 'install') {
-    // Set default storage values
-    chrome.storage.sync.set({
-      cryptoData: {},
-      settings: {
-        refreshInterval: 30000, // 30 seconds
-        notifications: true
-      }
-    });
-  }
-});
-
-// Listen for messages from content script or popup
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  console.log('Message received:', request);
-  
-  switch (request.action) {
-    case 'getCryptoData':
-      // Handle crypto data request
-      sendResponse({ success: true, data: 'crypto data here' });
-      break;
-    
-    case 'updateSettings':
-      chrome.storage.sync.set({ settings: request.settings }, () => {
-        sendResponse({ success: true });
+  async function handleWalletCommunication(
+    type: string,
+    wallet: string,
+    tabId: number,
+    payload: any,
+  ): Promise<any> {
+    if (type === 'connect') {
+      const providerKey = providerKeyFor(wallet);
+      const [{ result }] = await chrome.scripting.executeScript({
+        target: { tabId },
+        world: 'MAIN',
+        func: connectProvider,
+        args: [providerKey],
       });
-      break;
-    
-    default:
-      sendResponse({ success: false, error: 'Unknown action' });
+  
+      return result ?? { error: 'No result from connect' };
+    }
+  
+    if (type === 'switch_chain') {
+      const { hexChainId } = payload;
+      const providerKey = providerKeyFor(wallet);
+  
+      const [res] = await chrome.scripting.executeScript({
+        target: { tabId },
+        world: 'MAIN',
+        func: switchChainRequest,
+        args: [hexChainId, providerKey],
+      });
+  
+      return res?.result ?? { error: 'No result from switch_chain' };
+    }
+  
+    if (type === 'send_transaction') {
+      try {
+        const { to, value, data, from } = payload;
+  
+        const providerKey = providerKeyFor(wallet);
+  
+        const [res] = await chrome.scripting.executeScript({
+          target: { tabId },
+          world: 'MAIN',
+          func: sendTransactionRequest,
+          args: [to, value, data, providerKey, from],
+        });
+        console.log('🎯 Final response from MAIN world:', res?.result);
+        return res?.result ?? { error: 'No result from send_transaction' };
+      } catch (e: any) {
+        console.log('🧨 send_transaction outer catch:', e);
+        return { error: e?.message ?? 'Internal error in send_transaction' };
+      }
+    }
+  
+    if (type === 'simulate_contract') {
+      try {
+        const { address, data, from, value } = payload;
+  
+        if (!from || !from.startsWith('0x')) {
+          return { error: 'Invalid from address in simulate_contract' };
+        }
+  
+        const providerKey = providerKeyFor(wallet);
+  
+        const [res] = await chrome.scripting.executeScript({
+          target: { tabId },
+          world: 'MAIN',
+          func: simulateContractCall,
+          args: [
+            String(address),
+            String(data),
+            String(from),
+            String(value ?? '0x0'),
+            providerKey,
+          ],
+        });
+  
+        return res?.result ?? { error: 'No result from simulate_contract' };
+      } catch (err: any) {
+        console.error('[Background] ❌ simulate_contract exception:', err);
+        return { error: err?.message ?? 'Malformed simulate_contract payload' };
+      }
+    }
+  
+    throw new Error(`Unsupported message type: ${type}`);
   }
   
-  return true; // Keep message channel open for async response
-});
+  chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+    const tabId = sender.tab?.id;
+    if (!tabId) {
+      console.warn('[BG] no tabId → ignoring');
+      return;
+    }
+  
+    if (msg.type === 'getSelectedWallet') {
+      chrome.storage.local.get(['selectedWallet']).then((storage) => {
+        sendResponse(storage.selectedWallet);
+      });
+      return true;
+    }
+  
+    if (!msg.wallet) return false;
+  
+    handleWalletCommunication(msg.type, msg.wallet, tabId, msg.payload)
+      .then((res) => sendResponse(res))
+      .catch((err) => console.error('[BG] error handling message', err));
+  
+    return true;
+  });
+  
