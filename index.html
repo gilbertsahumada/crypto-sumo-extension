@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Crypto Sumo Extension</title>
+</head>
+<body>
+  <!-- This file is just for Vite's entry point - not used in the extension -->
+  <script type="module" src="./src/background.ts"></script>
+  <script type="module" src="./src/content.ts"></script>
+  <script type="module" src="./src/popup.ts"></script>
+  
+  <!-- Add iframe to load popup.html -->
+  <iframe src="public/popup.html" style="display:none;"></iframe>
+</body>
+</html>

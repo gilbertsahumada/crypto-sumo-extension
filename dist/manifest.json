@@ -1,0 +1,48 @@
+{
+  "name": "Crypto Sumo Extension",
+  "description": "Crypto Sumo Browser Extension",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "icons": {},
+  "action": {
+    "default_popup": "public/popup.html",
+    "default_title": "Crypto Sumo"
+  },
+  "background": {
+    "service_worker": "service-worker-loader.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "assets/content-script-loader.content.ts.d97e46aa.9555ee86.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "resources": [],
+      "use_dynamic_url": false
+    },
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "resources": [
+        "assets/content.ts.d97e46aa.js"
+      ],
+      "use_dynamic_url": true
+    }
+  ],
+  "permissions": [
+    "storage",
+    "activeTab"
+  ]
+}
