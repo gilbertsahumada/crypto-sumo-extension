@@ -1,9 +1,9 @@
 // src/popup/components/Header.tsx
 export const Header = () => {
   return (
-    <div className="flex justify-center items-center gap-2">
-      <img src="/img/logo-32.png" alt="SherryLinks" />
-      <span className="font-bold text-lg">Sherry</span>
+    <div className="header">
+      <img src="/img/logo-32.png" alt="" />
+      <span className="font-bold text-lg">Sumo</span>
     </div>
   );
 };

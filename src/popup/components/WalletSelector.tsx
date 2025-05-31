@@ -16,15 +16,11 @@ const WalletButton = ({
 }) => {
   return (
     <div
-      className={`border p-3 rounded-lg flex items-center gap-3 cursor-pointer w-full ${
-        isSelected
-          ? 'border-[#463899]'
-          : 'border-[#1D283A] hover:border-gray-400'
-      }`}
+      className={`wallet-button ${isSelected ? 'selected' : ''}`}
       onClick={onClick}
     >
       {icon}
-      <div className="flex flex-col">
+      <div className="wallet-info">
         <span className="font-medium text-sm">{title}</span>
         {subtitle && <span className="text-xs text-white">{subtitle}</span>}
       </div>
@@ -32,7 +28,8 @@ const WalletButton = ({
         {isSelected ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-5 h-5 text-[#8B5CF6]" // morado
+            className="w-5 h-5"
+            style={{ color: '#8B5CF6' }}
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -81,13 +78,11 @@ export const WalletSelector = ({
   }, [setSelectedWallet]);
 
   return (
-    <div className="flex flex-col gap-3 w-full">
+    <div className="wallet-selector">
       <WalletButton
         title="Core Wallet"
         subtitle="Use with Avalanche C-Chain"
-        icon={
-          <img src="/img/logo-core.svg" alt="Core Wallet" className="w-6 h-6" />
-        }
+        icon={""}
         isSelected={selectedWallet === 'core'}
         onClick={() =>
           selectedWallet === 'core' ? unselectWallet() : selectWallet('core')
@@ -96,13 +91,7 @@ export const WalletSelector = ({
       <WalletButton
         title="Rabby Wallet"
         subtitle="EVM-focused, privacy-friendly"
-        icon={
-          <img
-            src="/img/logo-rabby.png"
-            alt="Rabby Wallet"
-            className="w-6 h-6"
-          />
-        }
+        icon={""}
         isSelected={selectedWallet === 'rabby'}
         onClick={() =>
           selectedWallet === 'rabby' ? unselectWallet() : selectWallet('rabby')
@@ -111,13 +100,7 @@ export const WalletSelector = ({
       <WalletButton
         title="MetaMask"
         subtitle="EVM-focused, privacy-friendly"
-        icon={
-          <img
-            src="/img/logo-metamask.png"
-            alt="MetaMask"
-            className="w-6 h-6"
-          />
-        }
+        icon={""}
         isSelected={selectedWallet === 'metamask'}
         onClick={() =>
           selectedWallet === 'metamask'

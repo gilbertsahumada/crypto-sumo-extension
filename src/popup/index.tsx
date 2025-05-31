@@ -5,7 +5,7 @@ import { Popup } from './popup';
 
 ReactDOM.createRoot(document.getElementById('app') as HTMLElement).render(
   <React.StrictMode>
-    <div className="h-[720px] w-[320px]">
+    <div className="h-720px w-320px">
       <Popup />
     </div>
   </React.StrictMode>,
