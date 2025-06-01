@@ -8,13 +8,15 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "postinstall": "patch-package"
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "2.0.0-beta.26",
     "@types/chrome": "^0.0.254",
     "@types/node": "^20.10.0",
     "@types/react-dom": "^19.1.5",
+    "patch-package": "^8.0.0",
     "typescript": "^5.3.2",
     "vite": "^5.4.0"
   },
@@ -27,8 +29,8 @@
   "license": "MIT",
   "dependencies": {
     "@sherrylinks/sdk": "^2.20.14-beta.1",
-    "@sherrylinks/slinks": "^0.1.15-beta",
-    "@sherrylinks/slinks-core": "^0.1.15-beta",
+    "@sherrylinks/slinks": "^0.1.19-beta",
+    "@sherrylinks/slinks-core": "^0.1.19-beta",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   }

@@ -9,8 +9,8 @@
     "file": "assets/client-DzwojeCa.js",
     "name": "client"
   },
-  "_index-BDvrWGpM.js": {
-    "file": "assets/index-BDvrWGpM.js",
+  "_index-TlQKuUo1.js": {
+    "file": "assets/index-TlQKuUo1.js",
     "name": "index",
     "imports": [
       "_client-DzwojeCa.js"
@@ -20,16 +20,16 @@
     ]
   },
   "content.ts-loader.js": {
-    "file": "assets/content.ts-loader-C9-oVVaY.js",
+    "file": "assets/content.ts-loader-CYAi5S6r.js",
     "src": "content.ts-loader.js"
   },
   "node_modules/viem/_esm/utils/ccip.js": {
-    "file": "assets/ccip-0mjIEQWO.js",
+    "file": "assets/ccip-CEGzUVFx.js",
     "name": "ccip",
     "src": "node_modules/viem/_esm/utils/ccip.js",
     "isDynamicEntry": true,
     "imports": [
-      "_index-BDvrWGpM.js",
+      "_index-TlQKuUo1.js",
       "_client-DzwojeCa.js"
     ]
   },
@@ -46,22 +46,22 @@
     ]
   },
   "src/background.ts": {
-    "file": "assets/background.ts-DJyWY1co.js",
+    "file": "assets/background.ts-B8KjI3kT.js",
     "name": "background.ts",
     "src": "src/background.ts",
     "isEntry": true,
     "imports": [
-      "_index-BDvrWGpM.js",
+      "_index-TlQKuUo1.js",
       "_client-DzwojeCa.js"
     ]
   },
   "src/content.ts": {
-    "file": "assets/content.ts-CAMQkgIK.js",
+    "file": "assets/content.ts-fqXYX0cA.js",
     "name": "content.ts",
     "src": "src/content.ts",
     "isEntry": true,
     "imports": [
-      "_index-BDvrWGpM.js",
+      "_index-TlQKuUo1.js",
       "_client-DzwojeCa.js"
     ],
     "css": [
